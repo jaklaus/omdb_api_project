@@ -1,0 +1,13 @@
+<h1>MOVIE API APP - INFO PAGE</h1>
+
+<div>
+	<a href="/">Back</a>
+</div>
+
+<img src="<%=data.Poster%>" height="200px">
+<h2><%=data.Title%></h2>
+
+<% for (var movie in data) { %>
+ <li><%=movie%> - <strong><%=data[movie]%></strong></li>
+<% } %>
+

@@ -1,0 +1,16 @@
+<h1>MOVIE API APP</h1>
+
+<% if(data["Search"]){ %>
+
+<% data["Search"].forEach(function(movie){ %>
+	<li><a href="/movie/<%=movie["Title"]%>"><%=movie["Title"]%></a> - <strong><%=movie["Year"]%></strong></li>
+<% }) } else { %>
+	<p>No Titles Found</p>	
+	<% } %>
+	<br>
+<div>
+	<form action="/" method="GET">
+		<input type="text" name="search">
+		<button>Submit</button>
+	</form>
+</div>
