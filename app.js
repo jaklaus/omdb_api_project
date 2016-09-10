@@ -5,7 +5,7 @@ var express = require('express'),
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.get("/", function(req,res){
@@ -19,12 +19,10 @@ app.get("/", function(req,res){
 				var parsedData = JSON.parse(body)
 				res.render('home', {data:parsedData});
 			}
-		})
+		});
 	} else {
-		res.render('home', {data:[]})
+		res.render('home', {data:[]});
 	}
-	
-	
 });
 
 app.get("/movie/:info", function(req,res){
@@ -38,14 +36,12 @@ app.get("/movie/:info", function(req,res){
 				var parsedData = JSON.parse(body)
 				res.render('movie', {data:parsedData});
 			}
-		})
+		});
 	} else {
-		res.render('movie', {data:[]})
+		res.render('movie', {data:[]});
 	}
-	
-	
 });
 
 app.listen(3000, function(req,res){
-	console.log("movie api server running!")
+	console.log("OMDB api server running!")
 });

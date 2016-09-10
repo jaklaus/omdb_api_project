@@ -1,16 +1,18 @@
 <h1>MOVIE API APP</h1>
+<h3>by Joel Klaus</h3>
+<h3>Search the OMDB Movie Database!</h3>
 
 <% if(data["Search"]){ %>
 
 <% data["Search"].forEach(function(movie){ %>
 	<li><a href="/movie/<%=movie["Title"]%>"><%=movie["Title"]%></a> - <strong><%=movie["Year"]%></strong></li>
 <% }) } else { %>
-	<p>No Titles Found</p>	
+	<p>Enter movie title below.</p>	
 	<% } %>
 	<br>
 <div>
 	<form action="/" method="GET">
-		<input type="text" name="search">
+		<input type="text" name="search" placeholder="title">
 		<button>Submit</button>
 	</form>
 </div>
