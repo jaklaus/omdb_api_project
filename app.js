@@ -30,7 +30,6 @@ app.get("/movie/:info", function(req,res){
 	if(req.params.info){
 		var queryInfo = req.params.info;
 		var url = 'http://www.omdbapi.com/?t=' + queryInfo + "&tomatoes=true";
-		console.log(url)
 		request(url, function(err, response, body){
 			if(!err && response.statusCode === 200){
 				var parsedData = JSON.parse(body)

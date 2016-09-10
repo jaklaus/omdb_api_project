@@ -1,18 +1,32 @@
-<h1>MOVIE API APP</h1>
-<h3>by Joel Klaus</h3>
-<h3>Search the OMDB Movie Database!</h3>
-
-<% if(data["Search"]){ %>
-
-<% data["Search"].forEach(function(movie){ %>
-	<li><a href="/movie/<%=movie["Title"]%>"><%=movie["Title"]%></a> - <strong><%=movie["Year"]%></strong></li>
-<% }) } else { %>
-	<p>Enter movie title below.</p>	
-	<% } %>
-	<br>
-<div>
-	<form action="/" method="GET">
-		<input type="text" name="search" placeholder="title">
-		<button>Submit</button>
-	</form>
+<% include partials/header.ejs %>
+<div class="jumbotron">
+	<div class="container">
+		<h1>MOVIE API Project</h1>
+		<h3>by Joel Klaus</h3>
+		<h3>Search the OMDB Movie Database!</h3>
+	</div>
+	
 </div>
+<h3 class="text-center">Enter movie title below.</h3>	
+ <div class="input-group, text-center">
+	<form action="/" method="GET" class="navbar-form">
+		<div class="form-group">
+	    	<input type="text" name="search" placeholder="Search" class="form-control">
+	  	</div>
+	  	<button type="submit" class="btn btn-success">Submit</button>
+	</form>
+ </div><!-- /input-group -->
+
+<div class="container movie-list">
+	<ol class="list-group">
+<% if(data["Search"]){ %>
+	<h3>Movie Results</h3>
+<% data["Search"].forEach(function(movie){ %>
+	<li class="list-group-item"><a href="/movie/<%=movie["Title"]%>"><%=movie["Title"]%></a> - <strong><%=movie["Year"]%></strong></li>
+<% }) } else { %>
+	<p></p>	
+	<% } %>
+</ol>
+</div>
+
+<% include partials/footer.ejs %>
