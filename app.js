@@ -41,6 +41,6 @@ app.get("/movie/:info", function(req,res){
 	}
 });
 
-app.listen(3000, function(req,res){
+app.listen(process.env.PORT, process.env.IP, function(req,res){
 	console.log("OMDB api server running!")
 });
